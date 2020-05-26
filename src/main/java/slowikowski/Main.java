@@ -4,18 +4,6 @@ package slowikowski;
 import java.util.Scanner;
 
 class Main {
-
-    private String firstSequence;
-    private String secondSequence;
-
-    private void readData() {
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Podaj pierwszy ciag: ");
-        firstSequence = scanner.nextLine();
-        System.out.println("Podaj drugi ciag: ");
-        secondSequence = scanner.nextLine();
-    }
-
     boolean isSubsequence(String sequence, String subSequence) {
         int seqLength = sequence.length();
         int subLength = subSequence.length();
