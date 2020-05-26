@@ -78,7 +78,6 @@ class MainTest {
     void str2_withSlashAndStar_should_be_subsequence_of_str1_2() {
         String str1 = "*";
         String str2 = "\\*";
-        System.out.println(str2.length());
         assertTrue(main.isSubsequence(str1, str2));
     }
 

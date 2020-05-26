@@ -23,9 +23,12 @@ class Main {
 
         for (int i = 0; i < seqLength && j < subLength; i++) {
 
+            /*
+             * Jesli wystapi gwiazdka, sprawdzany jest ciag znakow po niej
+             */
             if (subSequence.charAt(j) == '*') {
                 for (int jj = j + 1; jj < subLength && i < seqLength; i++) {
-                    if(subSequence.charAt(jj) == sequence.charAt(i)) {
+                    if (subSequence.charAt(jj) == sequence.charAt(i)) {
                         j++;
                         jj++;
                     }
@@ -33,12 +36,10 @@ class Main {
                 }
             }
 
-            if(subSequence.charAt(j) == '\\' && j+1 < subLength && subSequence.charAt(j+1)== '*') {
+            if (subSequence.charAt(j) == '\\' && j + 1 < subLength && subSequence.charAt(j + 1) == '*') {
                 subLength--;
                 j++;
-            }
-
-            if (subSequence.charAt(j) == sequence.charAt(i)) {
+            } else if (subSequence.charAt(j) == sequence.charAt(i)) {
                 j++;
             }
         }
@@ -49,7 +50,6 @@ class Main {
     public static void main(String[] args) {
         Main main = new Main();
         main.readData();
-
         System.out.println(main.isSubsequence(main.firstSequence, main.secondSequence));
     }
 }
