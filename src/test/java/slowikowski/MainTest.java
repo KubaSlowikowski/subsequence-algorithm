@@ -1,5 +1,6 @@
 package slowikowski;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -42,7 +43,6 @@ class MainTest {
     void str2_withSlash_should_be_subsequence_of_str1() {
         String str1 = "123\\";
         String str2 = "123\\";
-        System.out.println(str2.length());
         assertTrue(main.isSubsequence(str1, str2));
     }
 
@@ -54,11 +54,19 @@ class MainTest {
     }
 
     @Test
-    void str2_withStar_should_be_subsequence_of_str1() {
+    void str2_withStarAtTheEnd_should_be_subsequence_of_str1() {
         String str1 = "abc";
+        String str2 = "a*";
+        assertTrue(main.isSubsequence(str1, str2));
+    }
+
+    @Test
+    void str2_withStar_should_not_be_subsequence_of_str1() {
+        String str1 = "acb";
         String str2 = "a*c";
         assertTrue(main.isSubsequence(str1, str2));
     }
+
 
     @Test
     void str2_withSlashAndStar_should_be_subsequence_of_str1() {
@@ -81,5 +89,17 @@ class MainTest {
         assertTrue(main.isSubsequence(str1, str2));
     }
 
+    @Test
+    void str2_withSlashAndStar_should_be_subsequence_of_str1_3() {
+        String str1 = "1234*5678\\9#";
+        String str2 = "34\\*\\9#";
+        assertTrue(main.isSubsequence(str1, str2));
+    }
 
+    @Test
+    void str2_withSlashAndStar_should_not_be_subsequence_of_str1() {
+        String str1 = "12345";
+        String str2 = "12\\*45";
+        assertFalse(main.isSubsequence(str1, str2));
+    }
 }
