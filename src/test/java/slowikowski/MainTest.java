@@ -75,6 +75,20 @@ class MainTest {
         }
 
         @Test
+        void str2_withStar_should_be_subsequence_of_str1_2() {
+            str1 = "abcd";
+            str2 = "*";
+            assertTrue(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withStar_should_be_subsequence_of_str1_3() {
+            str1 = "abcdef";
+            str2 = "abcdef*";
+            assertTrue(main.isSubsequence(str1, str2));
+        }
+
+        @Test
         void str2_withSlash_should_be_subsequence_of_str1() {
             str1 = "123\\";
             str2 = "123\\";
@@ -97,20 +111,27 @@ class MainTest {
 
         @Test
         void str2_withSlashAndStar_should_be_subsequence_of_str1_3() {
+            str1 = "*";
+            str2 = "*";
+            assertTrue(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withSlashAndStar_should_be_subsequence_of_str1_4() {
             str1 = "1234*5678\\9#";
             str2 = "34\\*\\9#";
             assertTrue(main.isSubsequence(str1, str2));
         }
 
         @Test
-        void str2_withSlashAndStar_should_be_subsequence_of_str1_4() {
+        void str2_withSlashAndStar_should_be_subsequence_of_str1_5() {
             str1 = "1234567*8";
             str2 = "12*3\\*8";
             assertTrue(main.isSubsequence(str1, str2));
         }
 
         @Test
-        void str2_withSlashAndStar_should_be_subsequence_of_str1_5() {
+        void str2_withSlashAndStar_should_be_subsequence_of_str1_6() {
             str1 = "1234*5678";
             str2 = "12\\*5*8";
             assertTrue(main.isSubsequence(str1, str2));
