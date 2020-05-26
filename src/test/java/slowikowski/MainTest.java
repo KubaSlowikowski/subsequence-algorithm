@@ -1,6 +1,5 @@
 package slowikowski;
 
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
@@ -100,6 +99,20 @@ class MainTest {
         void str2_withSlashAndStar_should_be_subsequence_of_str1_3() {
             str1 = "1234*5678\\9#";
             str2 = "34\\*\\9#";
+            assertTrue(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withSlashAndStar_should_be_subsequence_of_str1_4() {
+            str1 = "1234567*8";
+            str2 = "12*3\\*8";
+            assertTrue(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withSlashAndStar_should_be_subsequence_of_str1_5() {
+            str1 = "1234*5678";
+            str2 = "12\\*5*8";
             assertTrue(main.isSubsequence(str1, str2));
         }
     }

@@ -1,6 +1,5 @@
 package slowikowski;
 
-
 import java.util.Scanner;
 
 class Main {
@@ -56,6 +55,10 @@ class Main {
         System.out.println("Podaj drugi ciag: ");
         String str2 = scanner.nextLine();
 
-        System.out.println(main.isSubsequence(str1, str2));
+        if(main.isSubsequence(str1, str2)) {
+            System.out.println("Drugi ciag znakow JEST podciagiem pierwszego.");
+        } else {
+            System.out.println("Drugi ciag znakow NIE JEST podciagiem pierwszego.");
+        }
     }
 }
