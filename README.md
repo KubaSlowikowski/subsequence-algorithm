@@ -6,4 +6,4 @@ Dodatkowo, każde wystąpienie „*” w drugim ciągu, oznacza dopasowanie do z
 W repozytorium zawarte są również testy jednostkowe napisane w JUnit5, sprawdzające poprawność działania.
 
 
-Aby uruchomić plik .jar, należy wpisać w konsoli: 'java -jar <sciezka-dostepu-do-pliku/nazwa-pliku.jar>'
+Aby uruchomić plik .jar, należy wpisać w konsoli: 'java -jar <sciezka-dostepu-do-pliku/subSequence-app-1.0-SNAPSHOT.jar>'
