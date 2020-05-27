@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: slowikowski.MainTest
 -------------------------------------------------------------------------------
-Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in slowikowski.MainTest
+Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in slowikowski.MainTest

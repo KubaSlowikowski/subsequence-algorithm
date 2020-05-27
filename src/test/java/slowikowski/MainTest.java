@@ -12,8 +12,12 @@ class MainTest {
     private String str1;
     private String str2;
 
+    /*
+     * Tests where str2 should not be a subsequence of str1
+     */
+
     @Nested
-    class falseStatements {
+    class FalseStatements {
         @Test
         void str2_should_not_be_subsequence_of_str1() {
             str1 = "123456789";
@@ -29,15 +33,46 @@ class MainTest {
         }
 
         @Test
+        void str2_withStar_should_not_be_subsequence_of_str1() {
+            str1 = "abc";
+            str2 = "abc***a";
+            assertFalse(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withStar_should_not_be_subsequence_of_str1_2() {
+            str1 = "abcd";
+            str2 = "a*dc";
+            assertFalse(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withStar_should_not_be_subsequence_of_str1_3() {
+            str1 = "abcd";
+            str2 = "a*dc*****";
+            assertFalse(main.isSubsequence(str1, str2));
+        }
+
+        @Test
         void str2_withSlashAndStar_should_not_be_subsequence_of_str1() {
             str1 = "12345";
             str2 = "12\\*45";
             assertFalse(main.isSubsequence(str1, str2));
         }
+
+        @Test
+        void str2_withSlashAndStar_should_not_be_subsequence_of_str1_2() {
+            str1 = "abcd";
+            str2 = "a\\*";
+            assertFalse(main.isSubsequence(str1, str2));
+        }
     }
 
+    /*
+     * Tests where str2 should be a subsequence of str1
+     */
     @Nested
-    class trueStatements {
+    class TrueStatements {
         @Test
         void str2_should_be_subsequence_of_str1() {
             str1 = "123456789";
@@ -85,6 +120,20 @@ class MainTest {
         void str2_withStar_should_be_subsequence_of_str1_3() {
             str1 = "abcdef";
             str2 = "abcdef*";
+            assertTrue(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withStar_should_be_subsequence_of_str1_4() {
+            str1 = "abc";
+            str2 = "abc********************";
+            assertTrue(main.isSubsequence(str1, str2));
+        }
+
+        @Test
+        void str2_withStar_should_be_subsequence_of_str1_5() {
+            str1 = "abcd";
+            str2 = "a*d***";
             assertTrue(main.isSubsequence(str1, str2));
         }
 

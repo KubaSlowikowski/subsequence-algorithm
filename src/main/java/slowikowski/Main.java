@@ -29,8 +29,12 @@ class Main {
                         break;
                     }
                 }
+                /*
+                 * Jezeli nie znaleziono znaku '*' w pierwszym ciagu, konczymy porownywanie zwracajac 'false'
+                 */
                 if (!found) {
-                    break;
+                    j++;
+                    return false;
                 } else {
                     continue;
                 }
@@ -43,8 +47,15 @@ class Main {
                     if (subSequence.charAt(jj) == sequence.charAt(i)) {
                         j++;
                         jj++;
+                        break;
                     }
-                    break;
+                }
+                if ((i + 1) == sequence.length() && (subLength - 1) > j) { //gdy sie skonczyl pierwszy ciag, a w drugim cos zostalo, co nie jest '*', zwracamy false
+                    if (j + 1 < subLength && subSequence.charAt(j + 1) == '*') {
+                        j++;
+                        continue;
+                    }
+                    return false;
                 }
                 return true; // zwraca true jesli gwiazdka jest ostatnim elementem (poprzednie sa okej)
             }
@@ -54,7 +65,7 @@ class Main {
              */
             if (subSequence.charAt(j) == '\\' && j + 1 < subLength && subSequence.charAt(j + 1) == '*') {
                 j++;
-                b = false; //oznacza, ze przy kolejnej iteracji symbol '*' bez traktowany doslownie
+                b = false; //oznacza, ze przy kolejnej iteracji symbol '*' bedzie traktowany doslownie
                 i--;
             } else if (subSequence.charAt(j) == sequence.charAt(i)) {
                 j++;
@@ -64,7 +75,10 @@ class Main {
         if (j == subLength)
             return true;
         else if (subLength > seqLength && subSequence.charAt(j) == '*') { // <-- zabezpieczenie przed podciagiem konczacym sie na '*'
-            j++;
+            for (; j < subLength; j++) {
+                if (subSequence.charAt(j) != '*') // <- sprawdzenie przypadku z testu 'str2_withStar_should_not_be_subsequence_of_str1'
+                    return false;
+            }
             return (j == subLength);
         }
         return false;
